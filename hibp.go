@@ -59,7 +59,7 @@ func (h *HibpClient) getApiJson(actionUrl string, parameters Parameters, result 
 		return err, ""
 	}
 
-	return nil
+	return nil, ""
 }
 
 func (h *HibpClient) BreachesForAccount(email string, domain string, truncateResponse bool) (err error, resp string, breaches *Breaches) {
