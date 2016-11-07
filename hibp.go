@@ -82,7 +82,7 @@ func (h *HibpClient) getResponseString(code int, desc string) string {
 	case 429:
 		return "Too many requests — the rate limit has been exceeded"
 	default:
-		return desc
+		return ""
 	}
 }
 
@@ -109,9 +109,9 @@ func (h *HibpClient) BreachesForAccount(email string, domain string, truncateRes
 	breaches = &Breaches{}
 	err, resp = h.getApiJson("breachedaccount/" + email, p, breaches)
 	if err != nil {
-		return err, "", nil
+		return err, resp, nil
 	}
 
-	return nil, "", breaches
+	return nil, resp, breaches
 }
 
